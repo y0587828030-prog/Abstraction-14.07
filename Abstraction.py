@@ -162,3 +162,25 @@ express_delivery = ExpressDelivery()
 
 Calculation = DeliveryHelper().faster(Standard_delivery,express_delivery)
 print(f"Faster option{Calculation.__class__.__name__}")
+
+## step 8 Notification Abstract Class
+class Notifier(ABC):
+     @abstractmethod
+     def send(self, recipient, message):
+          pass
+
+class PushNotifier(Notifier):
+    def send(self, recipient, message):
+         print(f"push to {recipient}: {message}")
+
+class WhatsAppNotifier(Notifier):
+    def send(self, recipient, message):
+         print(f"WhatsApp to {recipient}: {message}")
+
+class InAppNotifier(Notifier):
+    def send(self, recipient, message):
+         print(f"In-app banner for{recipient}: {message}")
+
+messages_list =[PushNotifier(),WhatsAppNotifier(),InAppNotifier()]
+for message in messages_list:
+     message.send("customer_42", "Your order is on the way!")
