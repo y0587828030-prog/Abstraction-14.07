@@ -108,9 +108,23 @@ Bike_delivery.deliver(10)
 
 #TypeError: Can't instantiate abstract class BrokenDelivery without an implementation for abstract method 'deliver'
 
+##step 6. Static Delivery Fee Calculator
+class DeliveryFee:
+     @staticmethod
+     def calculate(distance_km, rate_per_km):
+          return distance_km * rate_per_km
 
+     @staticmethod
+     def with_surcharge(base_fee, surcharge_percent):
+          return base_fee * (1 + surcharge_percent / 100)
 
+     @staticmethod
+     def is_free(distance_km):
+          return distance_km <= 2.0
 
+Calculation = print(DeliveryFee.calculate(5, 3.0))    
+Calculation_with_addition = print(DeliveryFee.with_surcharge(15.0, 10))
+Distance_calculation = print(DeliveryFee.is_free(1.5))
 
 
 
