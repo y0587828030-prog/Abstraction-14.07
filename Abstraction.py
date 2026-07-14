@@ -184,3 +184,59 @@ class InAppNotifier(Notifier):
 messages_list =[PushNotifier(),WhatsAppNotifier(),InAppNotifier()]
 for message in messages_list:
      message.send("customer_42", "Your order is on the way!")
+
+
+##step 9
+class Restaurant(ABC):
+     @abstractmethod
+     def get_menu(self):
+          pass
+     def prepare_order(self,item_name):
+          pass
+
+class ItalianRestaurant(Restaurant):
+    def __init__(self):
+      self.menu = ['pasta', 'pizza', 'tiramisu'] 
+
+    def get_menu(self):
+         return self.menu
+
+    def prepare_order(self, item_name):
+         print(f"Italian restaurant - {item_name}")
+
+class SushiRestaurant(Restaurant):
+    def __init__(self):
+        self.menu = ['maki', 'nigiri', 'ramen']
+
+    def get_menu(self):
+         return self.menu
+
+    def prepare_order(self, item_name):
+         print(f"Sushi restaurant - {item_name}")
+
+class BurgerJoint(Restaurant):
+    def __init__(self):
+        self.menu = ['burger', 'fries', 'shake']
+
+    def get_menu(self):
+         return self.menu
+
+    def prepare_order(self, item_name):
+         print(f"Fast food - {item_name}")
+restaurants_list = [
+    ItalianRestaurant(),
+    SushiRestaurant(),
+    BurgerJoint()
+]
+for r in restaurants_list:
+    menu = r.get_menu()
+    print(menu)
+
+    a = menu[0]
+    r.prepare_order(a)
+
+    # print(f"\n---{r.__class__.__name__} ---")
+
+
+    # current_menu = r.get_menu()
+    # print(f"Menu: {current_menu}")
