@@ -93,6 +93,15 @@ Drone_delivery= DroneDelivery()
 Drone_delivery.deliver(2)
 Drone_delivery.get_eta()
 
+## step 5 Missing Implementation Error
+class DeliveryMethod(ABC):
+     @abstractmethod
+     def deliver(order_id):
+          pass
+
+class BrokenDelivery(DeliveryMethod):
+    pass
+Bike_delivery = BrokenDelivery()
 
 
 
