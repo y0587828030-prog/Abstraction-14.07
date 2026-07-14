@@ -100,11 +100,13 @@ class DeliveryMethod(ABC):
           pass
 
 class BrokenDelivery(DeliveryMethod):
-    pass
+     def deliver(self,order_id):
+        print (f"Order {order_id} Delivered by bike")
+          
 Bike_delivery = BrokenDelivery()
+Bike_delivery.deliver(10)
 
-
-
+#TypeError: Can't instantiate abstract class BrokenDelivery without an implementation for abstract method 'deliver'
 
 
 
