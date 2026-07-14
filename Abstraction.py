@@ -127,7 +127,38 @@ Calculation_with_addition = print(DeliveryFee.with_surcharge(15.0, 10))
 Distance_calculation = print(DeliveryFee.is_free(1.5))
 
 
+#step 7. Abstract + Static Together
+class DeliveryMethod(ABC):
+     @abstractmethod
+     def deliver(order_id):
+        pass
+     def get_eta(): 
+        pass
 
+class WalkingDelivery(DeliveryMethod):
+     def deliver(order_id):
+        return order_id
+     
+     def get_eta(self): 
+        return 60   
+     
+class ExpressDelivery(DeliveryMethod):
+     def deliver(order_id):
+        return order_id
+     
+     def get_eta(self): 
+        return 10
 
+class DeliveryHelper():
+     @staticmethod
+     def faster(d1, d2):
+          if d1.get_eta() < d2.get_eta():
+               return d1
+          else:
+               return d2
 
+Standard_delivery= WalkingDelivery()
+express_delivery = ExpressDelivery()
 
+Calculation = DeliveryHelper().faster(Standard_delivery,express_delivery)
+print(f"Faster option{Calculation.__class__.__name__}")
