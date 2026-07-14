@@ -1,36 +1,65 @@
-# step 1
+# # step 1
 from abc import ABC ,abstractmethod 
+# class DeliveryMethod(ABC):
+#     @abstractmethod
+#     def deliver(self, order_id):
+#         pass
+
+# class BikeDelivery(DeliveryMethod):
+#     def deliver(self, order_id):
+#         print (f"Order {order_id} Delivered by bike")
+
+# bike = BikeDelivery()
+# bike.deliver(101)
+
+
+# #step 2 
+# class DeliveryMethod(ABC):
+#     @abstractmethod
+#     def deliver(self, order_id):
+#         pass
+
+# class DroneDeliver(DeliveryMethod):
+#     def deliver(self, order_id):
+#         print(f"Order {order_id} dropped by drone at your door.")
+
+# class CarDelivery(DeliveryMethod):
+#     def deliver(self, order_id):
+#         print(f"Order {order_id} brought to your building by car.")
+
+# sending= DroneDeliver()
+# sending.deliver(202)
+# sending2=CarDelivery()
+# sending2.deliver(202)
+
+## step 3 Abstract with Constructor
 class DeliveryMethod(ABC):
+    def __init__(self, company_name):
+        self.company_name = company_name
+
     @abstractmethod
     def deliver(self, order_id):
         pass
 
 class BikeDelivery(DeliveryMethod):
+    def __init__(self, company_name, ):
+        super().__init__(company_name)
+
     def deliver(self, order_id):
-        print (f"Order {order_id} Delivered by bike")
+        return f"[{self.company_name}] Order {order_id} — bike delivery."
 
-bike = BikeDelivery()
-bike.deliver(101)
+class DroneDelivery(DeliveryMethod):
+    def __init__(self, company_name):
+        super().__init__(company_name)
 
-
-#step 2 
-class DeliveryMethod(ABC):
-    @abstractmethod
     def deliver(self, order_id):
-        pass
+        return f"[{self.company_name}] Order {order_id} — bike delivery."
 
-class DroneDeliver(DeliveryMethod):
-    def deliver(self, order_id):
-        print(f"Order {order_id} dropped by drone at your door.")
+sending = BikeDelivery("SpeedRiders")
+print(sending.deliver(303))
 
-class CarDelivery(DeliveryMethod):
-    def deliver(self, order_id):
-        print(f"Order {order_id} brought to your building by car.")
-
-sending= DroneDeliver()
-sending.deliver(202)
-sending2=CarDelivery()
-sending2.deliver(202)
+sending1 = DroneDelivery("SkyEx")
+print(sending1.deliver(303))
 
 
 
@@ -41,25 +70,17 @@ sending2.deliver(202)
 
 
 
-# # step 2
-# class DeliveryMethod(ABC):
 
-#     @abstractmethod
-#     def deliver(self,order_id):
-#         pass
 
-# class DroneDelivery (DeliveryMethod):
-     
-#      def deliver(self,order_id):
-#         print (f"{order_id} dropped by dron at your door")
 
-        
-# class CarDelivery (DeliveryMethod):
-     
-#      def deliver(self,order_id):
-#         print (f"{order_id} brought to your building by car")
 
-# car = CarDelivery()
-# car.deliver(202)
-# drone = DroneDelivery()
-# drone.deliver(202
+
+
+
+
+
+
+
+
+
+
