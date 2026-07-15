@@ -78,3 +78,20 @@ item.sell()
 item.status()
 item.restock()
 item.status()
+
+##6. Coffee Shop Open and Close
+class CoffeeShop:
+    def __init__(self, name , city,capacity ):
+        self.name = name
+        self.city = city
+        self.capacity =capacity
+
+    def open_shop(self):
+        print(f"{self.name} is now open in {self.city}! Capacity: {self.capacity} seats.")
+
+    def close_shop(self):
+        print(f"{self.name} is now closed. See you tomorrow!")
+
+claint = CoffeeShop("Brew House", "Tel Aviv", 40)
+claint.open_shop()
+claint.close_shop()
