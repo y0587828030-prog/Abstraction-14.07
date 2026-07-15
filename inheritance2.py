@@ -82,3 +82,36 @@ runner = Runner("Avi", "Kenya", "marathon")
 runner.greet()
 cyclist= Cyclist("Jan", "France", "road")
 cyclist.greet()
+
+## 5. Shared Warm-Up Method
+class Athlete:
+    def __init__(self, name , age):
+        self.name = name
+        self.age = age
+
+    def warm_up(self):
+        print(f"{self.name} is warming up.")
+
+class Gymnast(Athlete):
+    def __init__(self, name, age, apparatus):
+        super().__init__(name, age)
+        self.apparatus = apparatus
+
+    def compete(self):
+        print(f"{self.name} competes on the{self.apparatus} good look!! ")
+
+class Swimmer(Athlete):
+    def __init__(self, name, age, stroke):
+        super().__init__(name, age)
+        self.stroke = stroke
+
+    def compete(self):
+        print(f"{self.name} competes on the{self.stroke} good look!! ")
+
+gymnast =Gymnast("Ana", 19, "rings")
+gymnast.warm_up()
+gymnast.compete()
+
+swimer =Swimmer("Ben", 21, "butterfly")
+swimer.warm_up()
+swimer.compete()
