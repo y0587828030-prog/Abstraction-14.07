@@ -39,3 +39,16 @@ claint3 = MenuItem("Cold Brew", 5.0)
 claint1.describe()
 claint2.describe()
 claint3.describe()
+
+##4. Can the Customer Afford It?
+class Customer:
+    def __init__(self, name, balance ):
+        self.name = str(name)
+        self.balance = float(balance)
+
+    def can_afford(self, price): 
+        return price <= self.balance
+
+customr = Customer("bob", 10)
+print(customr.can_afford(8.0))
+print(customr.can_afford(12.0))
