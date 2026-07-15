@@ -30,3 +30,23 @@ class Runner(Athlete):
 
 runner =  Runner("Sara", 25)
 runner.describe()
+
+##3. Cyclist with Gear Info
+class Athlete:
+    def __init__(self, name , age):
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        print(f"{self.name} is {self.age} years old and is an athlete.")
+
+class Cyclist(Athlete):
+    def __init__(self, name, age,bike_brand):
+        super().__init__(name, age)
+        self.bike_brand = bike_brand
+
+    def describe_gear(self):
+        print(f"Cyclist {self.name} rides a {self.bike_brand}.")
+
+cyclist = Cyclist("Mike", 30, "Trek")
+cyclist.describe_gear()
