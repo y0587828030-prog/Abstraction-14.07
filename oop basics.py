@@ -119,3 +119,21 @@ item.clo()
 
 item.order()
 item.clo()
+
+##8. Print an Order
+class Order:
+    def __init__(self, customer_name, items):
+        self.customer_name =customer_name
+        self.items = items
+
+    def item_count(self):
+        print(f"item {len(self.items)}") 
+
+    def print_order(self):
+        print(f"Order for: {self.customer_name} ")
+        for _ in self.items:
+            print(f"-{_}")
+
+custumar = Order("Dana", ["Latte", "Croissant", "OJ"])
+custumar.item_count()
+custumar.print_order()
