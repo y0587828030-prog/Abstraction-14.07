@@ -137,3 +137,32 @@ class Order:
 custumar = Order("Dana", ["Latte", "Croissant", "OJ"])
 custumar.item_count()
 custumar.print_order()
+
+## 9. Barista Shift Tracker
+class Barista:
+    def __init__(self, name,specialty ):
+        self.name = name
+        self.specialty = specialty
+        self.drinks_made = 0
+
+    def make_drink(self, drink_name):
+        print(f"{self.name} made a {drink_name}.")
+        self.drinks_made += 1
+
+    def is_specialty(self, drink_name):
+        return self.specialty == drink_name
+
+    def shift_summary(self):
+        print(f"{self.name} made {self.drinks_made} drinks today.")
+
+Barista1=  Barista("Yossi", "Espresso")
+Barista1.make_drink("Espresso") 
+Barista1.make_drink("coffe") 
+Barista1.make_drink("laata") 
+Barista1.make_drink("Espresso")
+
+print(Barista1.is_specialty("Espresso"))
+Barista1.shift_summary()
+
+
+        
