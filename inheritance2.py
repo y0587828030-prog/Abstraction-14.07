@@ -194,3 +194,31 @@ trai.train()
 
 print(trai.sessions_needed(10))
 trai.describe()
+
+## 9. Basketball Player Card
+class Athlete:
+    def __init__(self, name, age, position):
+        self.name = name
+        self.age = age
+        self.position = position
+
+    def player_card(self):
+        print(f"{self.name} | {self.age} | {self.position}")
+
+class  BasketballPlayer(Athlete):
+    def __init__(self, name, age, position, jersey_number):
+        super().__init__(name, age, position)
+        self.jersey_number = jersey_number
+
+    def full_profile(self):
+        self.player_card()
+        print(f"Jersey: #{self.jersey_number}")
+
+playr1 = BasketballPlayer("Mia", 24, "guard", 7)
+playr1.full_profile()
+
+playir2= BasketballPlayer("dan", 35, "concierge", 9)
+playir2.full_profile()
+
+playir3= BasketballPlayer("avi", 20, "pioneer", 8)
+playir3.full_profile()
