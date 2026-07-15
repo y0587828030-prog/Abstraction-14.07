@@ -1,54 +1,80 @@
-##1. Describe a Menu Item
+# ##1. Describe a Menu Item
 
+# class MenuItem:
+#     def __init__(self, name, price):
+#         self.name = str(name)
+#         self.price = float(price)
+
+#     def describe(self):
+#         print(f"Item: {self.name} | Price: ${self.price}")
+
+# item = MenuItem("Espresso",3.5)
+# item.describe()
+
+# ## 2. Customer Greeting
+# class Customer:
+#     def __init__(self, name,favorite_drink ):
+#         self.name =name
+#         self.favorite_drink = favorite_drink
+
+#     def greet(self):
+#         print(f"Hi! I am {self.name} and I would like a {self.favorite_drink}.")
+
+# claint = Customer("yehosh", "coffe")
+# claint.greet()
+
+# ##3. Multiple Items with a Constructor
+# class MenuItem:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+
+#     def describe(self):
+#         print(f"Item: {self.name} | Price: ${self.price}")
+
+# claint1 = MenuItem("latta", 4.5)
+# claint2 = MenuItem("Croissant", 2.0)
+# claint3 = MenuItem("Cold Brew", 5.0)
+
+# claint1.describe()
+# claint2.describe()
+# claint3.describe()
+
+# ##4. Can the Customer Afford It?
+# class Customer:
+#     def __init__(self, name, balance ):
+#         self.name = str(name)
+#         self.balance = float(balance)
+
+#     def can_afford(self, price): 
+#         return price <= self.balance
+
+# customr = Customer("bob", 10)
+# print(customr.can_afford(8.0))
+# print(customr.can_afford(12.0))
+
+##5. Track Item Stock
 class MenuItem:
-    def __init__(self, name, price):
+    def __init__(self, name, price, in_stock):
         self.name = str(name)
         self.price = float(price)
+        self.in_stock = in_stock
 
-    def describe(self):
-        print(f"Item: {self.name} | Price: ${self.price}")
+    def sell(self):
+        self.in_stock = False
 
-item = MenuItem("Espresso",3.5)
-item.describe()
+    def restock(self):
+        self.in_stock = True
 
-## 2. Customer Greeting
-class Customer:
-    def __init__(self, name,favorite_drink ):
-        self.name =name
-        self.favorite_drink = favorite_drink
+    def status(self):
+        if self.in_stock == True:
+            print(f"{self.name} is in stock.")
+        else:
+            print(f" {self.name} is sold out.")
 
-    def greet(self):
-        print(f"Hi! I am {self.name} and I would like a {self.favorite_drink}.")
-
-claint = Customer("yehosh", "coffe")
-claint.greet()
-
-##3. Multiple Items with a Constructor
-class MenuItem:
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
-
-    def describe(self):
-        print(f"Item: {self.name} | Price: ${self.price}")
-
-claint1 = MenuItem("latta", 4.5)
-claint2 = MenuItem("Croissant", 2.0)
-claint3 = MenuItem("Cold Brew", 5.0)
-
-claint1.describe()
-claint2.describe()
-claint3.describe()
-
-##4. Can the Customer Afford It?
-class Customer:
-    def __init__(self, name, balance ):
-        self.name = str(name)
-        self.balance = float(balance)
-
-    def can_afford(self, price): 
-        return price <= self.balance
-
-customr = Customer("bob", 10)
-print(customr.can_afford(8.0))
-print(customr.can_afford(12.0))
+item= MenuItem("Muffin", 2.5, True)
+item.status()
+item.sell()
+item.status()
+item.restock()
+item.status()
