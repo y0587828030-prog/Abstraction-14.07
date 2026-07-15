@@ -13,3 +13,20 @@ class Swimmer(Athlete):
 
 swimeir = Swimmer("Tom", 22) 
 swimeir.introduce()
+
+##2. Runner with a Fixed Sport
+class Athlete:
+    def __init__(self, name, age, sport):
+        self.name = name
+        self.age = age
+        self.sport = sport
+
+    def describe(self):
+        print(f"{self.name} competes in {self.sport}.")
+
+class Runner(Athlete):
+    def __init__(self, name, age ):
+        super().__init__(name, age, "Running" )
+
+runner =  Runner("Sara", 25)
+runner.describe()
