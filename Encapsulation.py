@@ -56,6 +56,32 @@ profile.username = "ab"
 profile.username = "alax"
 print(profile.username)
 
+## 4. Private Follower Count
+class UserProfile:
+    def __init__(self, username):
+        self.username= username
+        self.__followers = 0
+
+    @property
+    def followers(self):
+        return self.__followers
+
+    def follow(self):
+        self.__followers += 1
+
+    def unfollow(self):
+        if self.__followers > 0:
+            self.__followers -= 1
+
+p = UserProfile("yehosh")
+p.follow()
+p.follow()
+p.follow()
+
+p.unfollow()
+print(p.followers)
+
+        
 
         
 
