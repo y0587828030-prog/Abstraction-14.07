@@ -1,169 +1,200 @@
-## Encapsulation
+# ## Encapsulation
 
 # #1. Private Username
-class UserProfile:
-    def __init__(self, username):
-        self.__username = username
-    @property
-    def username(self):
-        return self.__username
-    @username.setter
-    def username(self, new_username):
-        self.__username = new_username
+# class UserProfile:
+#     def __init__(self, username):
+#         self.__username = username
+#     @property
+#     def username(self):
+#         return self.__username
+#     @username.setter
+#     def username(self, new_username):
+#         self.__username = new_username
         
 
-profile = UserProfile("alice99")   
-print(profile.username)
+# profile = UserProfile("alice99")   
+# print(profile.username)
 
-###   print(profile.__username)
-### AttributeError: 'UserProfile' object has no attribute '__username'. Did you mean: 'username'?
+# ###   print(profile.__username)
+# ### AttributeError: 'UserProfile' object has no attribute '__username'. Did you mean: 'username'?
 
-# 2. Private Email with Getter
-class UserProfile:
-    def __init__(self, username, email):
-        self.__username = username
-        self.__email = email
-    @property
-    def username(self):
-        return self.__username
+# # 2. Private Email with Getter
+# class UserProfile:
+#     def __init__(self, username, email):
+#         self.__username = username
+#         self.__email = email
+#     @property
+#     def username(self):
+#         return self.__username
 
-    @property
-    def email(self):
-        return self.__email
-profile = UserProfile("bob", "bob@mail.com")
-print(profile.username)
-print(profile.email)
+#     @property
+#     def email(self):
+#         return self.__email
+# profile = UserProfile("bob", "bob@mail.com")
+# print(profile.username)
+# print(profile.email)
 
-## 3. Username Setter with Validation
-class UserProfile:
-    def __init__(self, username):
-        self.__username =username
+# ## 3. Username Setter with Validation
+# class UserProfile:
+#     def __init__(self, username):
+#         self.__username =username
 
-    @property
-    def username(self):
-        return self.__username
+#     @property
+#     def username(self):
+#         return self.__username
 
-    @username.setter
-    def username(self, new_usernam):
-        if len(new_usernam)>= 3:
-            self.__username = new_usernam
-        else:
-            print("Username too short")
+#     @username.setter
+#     def username(self, new_usernam):
+#         if len(new_usernam)>= 3:
+#             self.__username = new_usernam
+#         else:
+#             print("Username too short")
 
-profile = UserProfile("alice")
-print(profile.username)
-profile.username = "ab"
-profile.username = "alax"
-print(profile.username)
+# profile = UserProfile("alice")
+# print(profile.username)
+# profile.username = "ab"
+# profile.username = "alax"
+# print(profile.username)
 
-## 4. Private Follower Count
-class UserProfile:
-    def __init__(self, username):
-        self.username= username
-        self.__followers = 0
+# ## 4. Private Follower Count
+# class UserProfile:
+#     def __init__(self, username):
+#         self.username= username
+#         self.__followers = 0
 
-    @property
-    def followers(self):
-        return self.__followers
+#     @property
+#     def followers(self):
+#         return self.__followers
 
-    def follow(self):
-        self.__followers += 1
+#     def follow(self):
+#         self.__followers += 1
 
-    def unfollow(self):
-        if self.__followers > 0:
-            self.__followers -= 1
+#     def unfollow(self):
+#         if self.__followers > 0:
+#             self.__followers -= 1
 
-p = UserProfile("yehosh")
-p.follow()
-p.follow()
-p.follow()
+# p = UserProfile("yehosh")
+# p.follow()
+# p.follow()
+# p.follow()
 
-p.unfollow()
-print(p.followers)
+# p.unfollow()
+# print(p.followers)
 
-## 5. Protected Bio Field
-class UserProfile:
-    def __init__(self, username, bio):
-        self.username =username
-        self._bio = bio
+# ## 5. Protected Bio Field
+# class UserProfile:
+#     def __init__(self, username, bio):
+#         self.username =username
+#         self._bio = bio
 
-    @property 
-    def bio(self):
-        return self._bio
+#     @property 
+#     def bio(self):
+#         return self._bio
 
-class VerifiedUser(UserProfile):
-    def __init__(self, username, bio, badge):
-        super().__init__(username, bio)
-        self.badge = badge
+# class VerifiedUser(UserProfile):
+#     def __init__(self, username, bio, badge):
+#         super().__init__(username, bio)
+#         self.badge = badge
 
-    def full_description(self):
-        print(f"{self.username} [{self.badge}]: {self._bio}") 
+#     def full_description(self):
+#         print(f"{self.username} [{self.badge}]: {self._bio}") 
 
-a = VerifiedUser("celeb", "Singer and songwriter", "✓")        
-a.full_description()
+# a = VerifiedUser("celeb", "Singer and songwriter", "✓")        
+# a.full_description()
 
-##6. Age Setter with Range Check
-class UserProfile:
-    def __init__(self, username, age):
-        self.username = username
-        self.__age = age
-    @property
-    def age(self):
-        return self.__age
+# ##6. Age Setter with Range Check
+# class UserProfile:
+#     def __init__(self, username, age):
+#         self.username = username
+#         self.__age = age
+#     @property
+#     def age(self):
+#         return self.__age
 
-    @age.setter
-    def age(self, new_age):
-        if  new_age >= 13 and new_age <= 120:
-              self.__age = new_age
-        else:
-            print(f"Invalid age")
+#     @age.setter
+#     def age(self, new_age):
+#         if  new_age >= 13 and new_age <= 120:
+#               self.__age = new_age
+#         else:
+#             print(f"Invalid age")
 
-p= UserProfile("dan", 18)
-p.age = 10
-print(p.age)
+# p= UserProfile("dan", 18)
+# p.age = 10
+# print(p.age)
 
-p.age = 25
-print(p.age)
+# p.age = 25
+# print(p.age)
 
-p.age = 200
-print(p.age)
+# p.age = 200
+# print(p.age)
 
-## 7. Password Protection
-class UserAccount:
-    def __init__(self,username , password):
-        self.username =username
-        self._password = password
+# ## 7. Password Protection
+# class UserAccount:
+#     def __init__(self,username , password):
+#         self.username =username
+#         self._password = password
 
-    def check_password(self,attempt):
-        if attempt == self._password:
-            return True
-        else:
-            return False
+#     def check_password(self,attempt):
+#         if attempt == self._password:
+#             return True
+#         else:
+#             return False
 
-    def change_password(self, old, new):
-        if old == self._password:
-            self._password = new
-            print("Password changed successfully.")
-        else:
-            print("Incorrect old password.")
+#     def change_password(self, old, new):
+#         if old == self._password:
+#             self._password = new
+#             print("Password changed successfully.")
+#         else:
+#             print("Incorrect old password.")
 
-a=UserAccount("admin", "secret")
-print(a.__dict__)
-print(a.check_password("wrong"))
+# a=UserAccount("admin", "secret")
 # print(a.__dict__)
-a.change_password("secret", "new123")
-print(a.__dict__)
-print(a.check_password("new123"))
-
-
-
-
+# print(a.check_password("wrong"))
+# # print(a.__dict__)
 # a.change_password("secret", "new123")
-# a.change_password
 # print(a.__dict__)
+# print(a.check_password("new123"))
 
-# print(a.change_password.__name__)
-    
+
+
+
+## 8. Post Like Counter
+class Post:
+    def __init__(self, author, content):
+        self.author = author
+        self.content = content
+        self.__likes = 0
+        self.__liked_by = []
+
+    @property
+    def liked(self):
+        return self.__likes
+
+    def like(self, username):
+        if username not in self.__liked_by:
+             self.__liked_by.append(username)
+             self.__likes += 1
+
+    def unlike(self, username):
+        if username in self.__liked_by:
+            self.__liked_by.remove(username)
+            self.__likes -= 1
+
+    def status(self):
+        print(f"Post by {self.author}: {self.__likes} likes")
+
+post =Post("alice", "Hello world!")
+
+post.like("a")
+post.like("b")
+post.like("c")
+
+post.unlike("b")
+
+post.like("a")
+
+post.status()
+
 
 
 
