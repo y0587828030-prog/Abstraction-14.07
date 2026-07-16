@@ -34,5 +34,30 @@ profile = UserProfile("bob", "bob@mail.com")
 print(profile.username)
 print(profile.email)
 
+## 3. Username Setter with Validation
+class UserProfile:
+    def __init__(self, username):
+        self.__username =username
+
+    @property
+    def username(self):
+        return self.__username
+
+    @username.setter
+    def username(self, new_usernam):
+        if len(new_usernam)>= 3:
+            self.__username = new_usernam
+        else:
+            print("Username too short")
+
+profile = UserProfile("alice")
+print(profile.username)
+profile.username = "ab"
+profile.username = "alax"
+print(profile.username)
+
+
+        
+
 
 
