@@ -15,10 +15,24 @@ class UserProfile:
 profile = UserProfile("alice99")   
 print(profile.username)
 
-print(profile.__username)
+###   print(profile.__username)
+### AttributeError: 'UserProfile' object has no attribute '__username'. Did you mean: 'username'?
 
+# 2. Private Email with Getter
+class UserProfile:
+    def __init__(self, username, email):
+        self.__username = username
+        self.__email = email
+    @property
+    def username(self):
+        return self.__username
 
-
+    @property
+    def email(self):
+        return self.__email
+profile = UserProfile("bob", "bob@mail.com")
+print(profile.username)
+print(profile.email)
 
 
 
