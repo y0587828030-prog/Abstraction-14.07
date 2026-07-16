@@ -1,0 +1,107 @@
+## Encapsulation
+
+# #1. Private Username
+class UserProfile:
+    def __init__(self, username):
+        self.__username = username
+    @property
+    def username(self):
+        return self.__username
+    @username.setter
+    def username(self, new_username):
+        self.__username = new_username
+        
+
+profile = UserProfile("alice99")   
+print(profile.username)
+
+###   print(profile.__username)
+### AttributeError: 'UserProfile' object has no attribute '__username'. Did you mean: 'username'?
+
+# 2. Private Email with Getter
+class UserProfile:
+    def __init__(self, username, email):
+        self.__username = username
+        self.__email = email
+    @property
+    def username(self):
+        return self.__username
+
+    @property
+    def email(self):
+        return self.__email
+profile = UserProfile("bob", "bob@mail.com")
+print(profile.username)
+print(profile.email)
+
+## 3. Username Setter with Validation
+class UserProfile:
+    def __init__(self, username):
+        self.__username =username
+
+    @property
+    def username(self):
+        return self.__username
+
+    @username.setter
+    def username(self, new_usernam):
+        if len(new_usernam)>= 3:
+            self.__username = new_usernam
+        else:
+            print("Username too short")
+
+profile = UserProfile("alice")
+print(profile.username)
+profile.username = "ab"
+profile.username = "alax"
+print(profile.username)
+
+## 4. Private Follower Count
+class UserProfile:
+    def __init__(self, username):
+        self.username= username
+        self.__followers = 0
+
+    @property
+    def followers(self):
+        return self.__followers
+
+    def follow(self):
+        self.__followers += 1
+
+    def unfollow(self):
+        if self.__followers > 0:
+            self.__followers -= 1
+
+p = UserProfile("yehosh")
+p.follow()
+p.follow()
+p.follow()
+
+p.unfollow()
+print(p.followers)
+
+## 5. Protected Bio Field
+class UserProfile:
+    def __init__(self, username, bio):
+        self.username =username
+        self._bio = bio
+
+    @property 
+    def bio(self):
+        return self._bio
+
+class VerifiedUser(UserProfile):
+    def __init__(self, username, bio, badge):
+        super().__init__(username, bio)
+        self.badge = badge
+
+    def full_description(self):
+        print(f"{self.username} [{self.badge}]: {self._bio}") 
+
+a = VerifiedUser("celeb", "Singer and songwriter", "✓")        
+a.full_description()
+        
+
+
+
